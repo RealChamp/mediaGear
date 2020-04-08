@@ -1,8 +1,10 @@
 @import 'normalize';
+@import 'vars';
 @import 'global';
 
 .preheader {
     background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
     padding: 10px 5px;
 }
 
@@ -25,8 +27,19 @@
 .navigation__item {}
 
 .dropdown {
-    padding-right: 10px;
     position: relative;
+
+    &-toggle {
+        padding-right: 15px;
+    }
+
+    &-toggle::after {
+        content: '\f107';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 
     &__list {
         display: none;
@@ -49,39 +62,39 @@
         }
 
         &.colors li:nth-child(1) a {
-            color: green;
+            color: $green;
         }
 
         &.colors li:nth-child(2) a {
-            color: blue;
+            color: $blue;
         }
 
         &.colors li:nth-child(3) a {
-            color: #f00;
+            color: $red;
         }
 
         &.colors li:nth-child(4) a {
-            color: #ff9b06;
+            color: $orange;
         }
 
         &.colors li:nth-child(1):hover a,
         &.colors li:nth-child(2):hover a,
         &.colors li:nth-child(3):hover a,
         &.colors li:nth-child(4):hover a {
-            background-color: green;
+            background-color: $green;
             color: #fff;
         }
 
         &.colors li:nth-child(2):hover a {
-            background-color: blue;
+            background-color: $blue;
         }
 
         &.colors li:nth-child(3):hover a {
-            background-color: #f00;
+            background-color: $red;
         }
 
         &.colors li:nth-child(4):hover a {
-            background-color: #ff9b06;
+            background-color: $orange;
 
         }
 
@@ -96,5 +109,174 @@
         }
 
 
+    }
+}
+
+
+.header {
+
+    border-bottom: 1px solid #c0c0c0;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        min-height: 165px;
+        align-items: center;
+
+
+    }
+
+    .logo-wrapper {
+
+        width: 230px;
+        height: 55px;
+
+        .header__logo {
+            height: inherit;
+        }
+
+        .svg-logo {
+            width: 100%;
+            height: 100%;
+
+            .colorful-word {
+                fill: $green;
+            }
+
+            .small-word {
+                font-size: 0.35rem;
+            }
+        }
+
+
+        a {
+            display: block;
+        }
+    }
+
+    .contacts {
+        margin-bottom: 20px;
+
+        &__info {
+            margin-bottom: 5px;
+
+            &-item+.contacts__info-item {
+                margin-left: 15px;
+            }
+
+            &-item {
+                position: relative;
+                padding-left: 25px;
+            }
+
+            &-item::before {
+                content: '\fb';
+                position: absolute;
+                left: 0%;
+            }
+        }
+    }
+
+    .contacts__search {
+        border: 3px solid #c6c6c6;
+        border-radius: 4px;
+    }
+
+    .search__form {
+        display: flex;
+
+
+
+        input {
+            border: none;
+            width: 400px;
+            padding: 12px 5px;
+            font-size: 0.95rem;
+
+        }
+    }
+
+    .categories__filter {
+        border-left: 1px solid #f0f0f0;
+        padding: 12px 35px 12px 15px;
+        position: relative;
+
+        &::before {
+            content: '\fa';
+            position: absolute;
+            right: 8%;
+
+        }
+    }
+
+    .search__link {
+        padding: 14px 12px;
+        margin: -3px -3px -2px 0px;
+        background-color: $green;
+        border-radius: 0 5px 5px 0;
+
+    }
+
+
+}
+
+.user-features {
+    display: flex;
+    flex-direction: column;
+
+    a {
+        margin-top: 10px;
+        padding-left: 15px;
+        font-size: 0.8rem;
+        position: relative;
+
+        &::before {
+            content: '\fb';
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+            margin-top: -2px;
+        }
+    }
+
+}
+
+.basket-cart {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+
+    .basket-icon {
+        align-self: center;
+        position: relative;
+        margin-right: 10px;
+
+        .basket-cart__count {
+            position: absolute;
+            top: 8px;
+            left: 18px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 0.95rem;
+            line-height: 1.25;
+            background-color: $green;
+            color: #fff;
+        }
+    }
+
+    &__info {
+
+        &-text {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        &-price {
+            color: $green;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
     }
 }
